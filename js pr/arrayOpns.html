@@ -1,0 +1,32 @@
+<html>
+<script>
+// Create an array
+let array = [1, 2, 3, 4, 5];
+// Function to remove a specific element from the array
+function removeElement(arr, element) {
+    return arr.filter(item => item !== element);
+}
+// Function to check if an array contains a specified value
+function containsElement(arr, element) {
+    return arr.includes(element);
+}
+
+// Function to empty an array
+function emptyArray(arr) {
+    arr.length = 0;
+    return arr;
+}
+
+// Example usage
+document.write("Original array: ", array);
+
+// Remove element 3
+array = removeElement(array, 3);
+document.write("<br>After removing 3: ", array);
+// Check if array contains 2
+document.write("<br>Contains 2: ", containsElement(array, 2));
+// Empty the array
+array = emptyArray(array);
+document.write("<br>After emptying: ", array);
+</script>
+</html>

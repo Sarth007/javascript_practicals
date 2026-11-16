@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Set Operations</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 40px;
+        }
+        h1 {
+            color: #333;
+        }
+        .box {
+            background-color: white;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #result {
+            margin-top: 20px;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>JavaScript Set Operations</h1>
+
+    <div class="box">
+        <h2>Set A and Set B</h2>
+
+        <p><b>Set A:</b> {1, 2, 3, 4, 5}</p>
+        <p><b>Set B:</b> {4, 5, 6, 7, 8}</p>
+
+        <button onclick="performOperations()">
+            Perform Set Operations
+        </button>
+
+        <div id="result"></div>
+    </div>
+
+    <script>
+
+        function performOperations() {
+
+            // Creating Set A
+            const setA = new Set([1, 2, 3, 4, 5]);
+
+            // Creating Set B
+            const setB = new Set([4, 5, 6, 7, 8]);
+
+            // -------------------------
+            // 1. UNION
+            // -------------------------
+            const union = new Set([...setA, ...setB]);
+
+            // -------------------------
+            // 2. INTERSECTION
+            // -------------------------
+            const intersection = new Set(
+                [...setA].filter(value => setB.has(value))
+            );
+
+            // -------------------------
+            // 3. DIFFERENCE A - B
+            // -------------------------
+            const differenceAB = new Set(
+                [...setA].filter(value => !setB.has(value))
+            );
+            // -------------------------
+            // 4. DIFFERENCE B - A
+            // -------------------------
+            const differenceBA = new Set(
+                [...setB].filter(value => !setA.has(value))
+            );
+
+
+            // -------------------------
+            // 5. SYMMETRIC DIFFERENCE
+            // Elements present in A or B
+            // but not in both
+            // -------------------------
+            const symmetricDifference = new Set([
+                ...differenceAB,
+                ...differenceBA
+            ]);
+
+
+            // Display results
+            document.getElementById("result").innerHTML = `
+                <h3>Results:</h3>
+
+                <p>
+                    <b>Set A:</b>
+                    {${[...setA].join(", ")}}
+                </p>
+
+                <p>
+                    <b>Set B:</b>
+                    {${[...setB].join(", ")}}
+                </p>
+
+                <p>
+                    <b>1. Union (A ∪ B):</b>
+                    {${[...union].join(", ")}}
+                </p>
+
+                <p>
+                    <b>2. Intersection (A ∩ B):</b>
+                    {${[...intersection].join(", ")}}
+                </p>
+
+                <p>
+                    <b>3. Difference (A - B):</b>
+                    {${[...differenceAB].join(", ")}}
+                </p>
+
+                <p>
+                    <b>4. Difference (B - A):</b>
+                    {${[...differenceBA].join(", ")}}
+                </p>
+
+                <p>
+                    <b>5. Symmetric Difference:</b>
+                    {${[...symmetricDifference].join(", ")}}
+                </p>
+            `;
+        }
+
+    </script>
+</body>
+</html>

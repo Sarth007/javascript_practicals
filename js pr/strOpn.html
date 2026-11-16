@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>String Operations</title>
+</head>
+<body>
+<script>
+    let str = prompt("Enter a string:");
+    // i. Reverse String
+    let reverse = str.split("").reverse().join("");
+    document.write("Reverse String = " + reverse + "<br>");
+
+    // ii. Replace Characters
+    let oldChar = prompt("Enter character to replace:");
+    let newChar = prompt("Enter new character:");
+    let replaced = str.replaceAll(oldChar, newChar);
+    document.write("After Replacement = " + replaced + "<br>");
+    // iii. Check Palindrome
+    if (str.toLowerCase() === reverse.toLowerCase()) {
+        document.write("String is Palindrome");
+    } else {
+        document.write("String is Not Palindrome");
+    }
+</script>
+</body>
+</html>

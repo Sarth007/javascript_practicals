@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Change Background Color</title>
+
+    <script>
+        function bgChange(bg) {
+            document.body.style.backgroundColor = bg;
+        }
+    </script>
+</head>
+
+<body>
+
+    <h2>Change Background Color</h2>
+    <p>Mouse over the squares!</p>
+
+    <table style="width: 600px; height: 300px;">
+        <tr>
+            <td
+                onmouseover="bgChange(this.style.backgroundColor)"
+                onmouseout="bgChange('white')"
+                style="background-color: pink;">
+            </td>
+
+            <td
+                onmouseover="bgChange(this.style.backgroundColor)"
+                onmouseout="bgChange('white')"
+                style="background-color: PaleGreen;">
+            </td>
+
+            <td
+                onmouseover="bgChange(this.style.backgroundColor)"
+                onmouseout="bgChange('white')"
+                style="background-color: Blue;">
+            </td>
+        </tr>
+
+        <tr>
+            <td
+                onmouseover="bgChange(this.style.backgroundColor)"
+                onmouseout="bgChange('white')"
+                style="background-color: yellow;">
+            </td>
+
+            <td
+                onmouseover="bgChange(this.style.backgroundColor)"
+                onmouseout="bgChange('white')"
+                style="background-color: Green;">
+            </td>
+            <td
+                onmouseover="bgChange(this.style.backgroundColor)"
+                onmouseout="bgChange('white')"
+                style="background-color: gray;">
+            </td>
+   </table>
+</html>
